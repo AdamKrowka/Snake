@@ -112,11 +112,11 @@ function hitWall(x, y) {
 
     // }
     if (x < 0) {
-        snake[0].x = numberOfRect;
+        snake[0].x = numberOfRect - 1;
     } else if (x >= numberOfRect) {
         snake[0].x = 0;
     } else if (y < 0) {
-        snake[0].y = canvas.height / bok;
+        snake[0].y = canvas.height / bok - 1;
     } else if (y >= canvas.height / bok) {
         snake[0].y = 0;
     }
@@ -145,11 +145,13 @@ function eatFood() {
     }
 }
 setInterval(() => {
+    -
     hitWall(snake[0].x, snake[0].y);
     eatYourTail();
+
+    eatFood();
     drowSnake();
     drowFood();
-    eatFood();
     turn = true;
 }, 100);
 
